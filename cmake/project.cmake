@@ -6,6 +6,8 @@ include(stm32_usb_cdc)
 include(stm32f1xx_hal)
 include(stm32f1xx_flags)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 function(embedded_executible target)
     add_executable(${target} ${ARGN})
     set_target_properties(${target} PROPERTIES RUNTIME_OUTPUT_NAME ${target}.elf)
