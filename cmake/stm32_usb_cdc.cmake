@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 include(utils)
 
-set(USBD_CDC_DIR "${PROJECT_SOURCE_ROOT_DIR}/Middlewares/ST/STM32_USB_Device_Library/")
+set(USBD_CDC_DIR "${PROJECT_SOURCE_ROOT_DIR}/Middlewares/ST/STM32_USB_Device_Library")
 check_if_dir_exists(${USBD_CDC_DIR})
 
 set(USBD_INCLUDE_DIRS
