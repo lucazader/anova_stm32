@@ -1,5 +1,5 @@
 # Licencing
-MIT License see [/LICENSE.md]
+MIT License - see [LICENSE.md](LICENSE.md)
 
 # About
 
