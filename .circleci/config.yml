@@ -2,10 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: archlinux/base:latest
+      - image: image: lucazader/arch_gcc_embedded
     working_directory: ~/anova_stm32
     steps:
-      - run: pacman -Sy --noconfirm cmake git ninja openssh arm-none-eabi-gcc arm-none-eabi-binutils arm-none-eabi-newlib
       - run: arm-none-eabi-gcc --version
       - checkout
       - run: mkdir release
