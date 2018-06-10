@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: archlinux/base:latest
+    working_directory: ~/anova_stm32
     steps:
       - run: pacman -Sy --noconfirm cmake git ninja openssh
       - checkout
