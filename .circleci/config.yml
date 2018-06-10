@@ -5,22 +5,21 @@ jobs:
       - image: archlinux/base:latest
     working_directory: ~/anova_stm32
     steps:
-      - run: pacman -Sy --noconfirm cmake git ninja openssh
+      - run: pacman -Sy --noconfirm cmake git ninja openssh arm-none-eabi-gcc arm-none-eabi-binutils arm-none-eabi-newlib
+      - run: arm-none-eabi-gcc --version
       - checkout
-      - run: mkdir release && cd release
+      - run: mkdir release
       - run:
           name: cmake configure - release
-          command: cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/arm-gcc-toolchain.cmake \
-                    -G Ninja -DCMAKE_BUILD_TYPE=Release ..
-      - run:
-          name: build - release
-          command: ninja
+          command: cd release &&
+              cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/arm_gcc_toolchain.cmake
+              -G Ninja -DCMAKE_BUILD_TYPE=Release ../ &&
+              ninja
 
-      - run: cd .. && mkdir debug && cd debug
+      - run: mkdir debug
       - run:
           name: cmake configure - debug
-          command: cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/arm-gcc-toolchain.cmake \
-                    -G Ninja -DCMAKE_BUILD_TYPE=Release ..
-      - run:
-          name: build - debug
-          command: ninja
+          command: cd debug &&
+              cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/arm_gcc_toolchain.cmake 
+              -G Ninja -DCMAKE_BUILD_TYPE=Debug ../ &&
+              ninja

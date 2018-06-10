@@ -7,7 +7,7 @@ set(APPLICATION_DIR "${PROJECT_SOURCE_ROOT_DIR}/application")
 # to escape from the cube generated main.c file. This does require the generated Core library to know about the application
 # include directory and application.h header file for compliation. If there is a better way to escape from the generated
 # Core/main.c or a better way to define the link between Core/main.c and application.h please email lucas.hutchinson@gmail.com
-set(APPLICATION_INCLUDE_DIR ${APPLICATION_DIR}/Inc)
+set(APPLICATION_INCLUDE_DIR ${APPLICATION_DIR}/inc)
 set(APPLICATION_HEADERS ${APPLICATION_INCLUDE_DIR}/application.h)
 
 set(CORE_SOURCES
@@ -29,7 +29,7 @@ set(CORE_SOURCES
 
 set(CORE_HEADERS
     ${CORE_DIR}/Inc/dma.h
-    ${CORE_DIR}/Inc/freeRTOSConfig.h
+    ${CORE_DIR}/Inc/FreeRTOSConfig.h
     ${CORE_DIR}/Inc/gpio.h
     ${CORE_DIR}/Inc/main.h
     ${CORE_DIR}/Inc/spi.h
