@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 set(MCU "-mthumb -mcpu=cortex-m3 -mfloat-abi=soft")
 set(C_DEFS "-DUSE_HAL_DRIVER -DSTM32F103xB")
+set(CMAKE_LINKER_SCRIPT ${PROJECT_SOURCE_ROOT_DIR}/STM32F103C8Tx_FLASH.ld)
 
 set(COMMON_FLAGS 
 "${MCU} -ffunction-sections -fdata-sections -Wall -Wdouble-promotion \
@@ -18,10 +19,8 @@ set(CMAKE_ASM_FLAGS "${COMMON_FLAGS} -x assembler-with-cpp"
 
 set(CMAKE_EXE_LINKER_FLAGS 
 "${MCU} -specs=nano.specs -specs=nosys.specs -static \
--Wl,-u,Reset_Handler -mfloat-abi=soft \
--Wl,--defsym=malloc_getpagesize_P=0x1000 \
--Wl,--gc-sections -Wl,--start-group \
--lc -lm -lstdc++ -lsupc++ -Wl,--end-group"
+-Wl,--gc-sections -lc -lm -lnosys -lstdc++ -lsupc++ \
+-T ${CMAKE_LINKER_SCRIPT}"
 CACHE INTERNAL "executable linker flags")
 
 set(CMAKE_MODULE_LINKER_FLAGS 
