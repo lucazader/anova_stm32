@@ -9,17 +9,17 @@ set(COMMON_FLAGS
 -fsingle-precision-constant -fstack-usage")
 
 set(CMAKE_C_FLAGS   "${COMMON_FLAGS} -std=gnu11 ${C_DEFS}"
-                    CACHE INTERNAL "c compiler flags")
+                    CACHE "c compiler flags")
 
 set(CMAKE_CXX_FLAGS "${COMMON_FLAGS} -fno-rtti -fno-exceptions ${C_DEFS}"
-                    CACHE INTERNAL "cxx compiler flags")
+                    CACHE "cxx compiler flags")
 
 set(CMAKE_ASM_FLAGS "${COMMON_FLAGS} -x assembler-with-cpp"
-                    CACHE INTERNAL "asm compiler flags")
+                    CACHE "asm compiler flags")
 
 set(CMAKE_EXE_LINKER_FLAGS 
 "${MCU} -specs=nano.specs -specs=nosys.specs -static \
 -Wl,--gc-sections -lc -lm -lnosys -lstdc++ -lsupc++ \
 -T ${CMAKE_LINKER_SCRIPT}"
-CACHE INTERNAL "executable linker flags")
+CACHE "executable linker flags")
 
