@@ -6,3 +6,11 @@ Release/
 
 build/
 builds/
+
+\.cproject
+
+\.project
+
+\.settings/com\.atollic\.truestudio\.debug\.hardware_device\.prefs
+
+\.settings/language\.settings\.xml
