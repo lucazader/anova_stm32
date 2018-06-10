@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: archlinux/base:latest
     steps:
+      - run: pacman -Sy --noconfirm cmake git ninja openssh
       - checkout
-      - run: pacman -Sy --noconfirm cmake git ninja
       - run: mkdir release && cd release
       - run:
           name: cmake configure - release
