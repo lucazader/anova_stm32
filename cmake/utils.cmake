@@ -22,7 +22,7 @@ endmacro()
 # Add custom command to print firmware size in Berkley format
 function(firmware_size target suffix)
     add_custom_command(TARGET ${target} POST_BUILD
-        COMMAND ${CMAKE_SIZE_UTIL} -B
+        COMMAND ${CMAKE_SIZE} -B
         "${CMAKE_CURRENT_BINARY_DIR}/${target}${suffix}"
         COMMENT "Invoking: ARM GNU Print Size on ${target}${suffix}"
     )
