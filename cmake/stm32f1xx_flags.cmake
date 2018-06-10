@@ -23,12 +23,3 @@ set(CMAKE_EXE_LINKER_FLAGS
 -T ${CMAKE_LINKER_SCRIPT}"
 CACHE INTERNAL "executable linker flags")
 
-set(CMAKE_MODULE_LINKER_FLAGS 
-"${MCU} -specs=nano.specs -specs=nosys.specs -static \
--Wl,-u,Reset_Handler "
-CACHE INTERNAL "module linker flags")
-
-set(CMAKE_SHARED_LINKER_FLAGS 
-"${MCU} -specs=nano.specs -specs=nosys.specs -static \
--Wl,-u,Reset_Handler " 
-CACHE INTERNAL "shared linker flags")
