@@ -16,10 +16,5 @@ function(embedded_executible target)
     firmware_size(${target} .hex)
 
     # Common base libraries
-    target_link_libraries(${target}
-        "-Wl,--whole-archive"
-        core
-        "-Wl,--no-whole-archive"
-        freertos
-    )
+    target_link_libraries(${target} core freertos)
 endfunction()
