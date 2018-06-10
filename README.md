@@ -18,7 +18,7 @@ This project will replace the built in electronics with some cheap readily avali
 | Non-functional Precision Cooker | Probably not advisable to specifically break your fully functional Precision cooker, but hey **it's not my money!** | [Anova's website](https://anovaculinary.com/anova-precision-cooker/)
 
 # CI Status
-Master:  ![Master build status](https://circleci.com/gh/lucazader/anova_stm32/tree/master.svg?style=shield&circle-token=:circle-token "Master build status")
+Master:  ![Master build status](https://circleci.com/gh/lucazader/anova_stm32/tree/master.svg?style=shield&circle-token=:circle-token "Master build status") - [Check CI builds here](https://circleci.com/gh/lucazader/anova_stm32)
 
 # Requirements
 | Program | Link |
