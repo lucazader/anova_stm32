@@ -17,6 +17,8 @@ This project will replace the built in electronics with some cheap readily avali
 | MAX31855 | SPI thermocouple interfacing chip. Takes all the hard work out of working with the thermocouple in the Precision Cooker | TBC |
 | Non-functional Precision Cooker | Probably not advisable to specifically break your fully functional Precision cooker, but hey **it's not my money!** | [Anova's website](https://anovaculinary.com/anova-precision-cooker/)
 
+# CI Status
+Master:  ![Master build status](https://circleci.com/gh/lucazader/anova_stm32/tree/master.svg?style=shield&circle-token=:circle-token "Master build status")
 
 # Requirements
 | Program | Link |
