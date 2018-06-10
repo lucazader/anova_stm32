@@ -4,5 +4,7 @@
 
 void gui_thread_task(void * args)
 {
-    vTaskDelay(50);
+	while(1) {
+		vTaskDelay(50);
+	}
 }
