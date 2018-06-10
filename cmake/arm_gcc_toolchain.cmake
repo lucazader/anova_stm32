@@ -61,9 +61,9 @@ else()
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 endif()
 
-set(CMAKE_C_FLAGS_DEBUG          "-Og -g" CACHE STRING "C compiler flags - debug")
-set(CMAKE_CXX_FLAGS_DEBUG        "-Og -g" CACHE STRING "C++ compiler flags - debug")
-set(CMAKE_ASM_FLAGS_DEBUG        "-Og -g" CACHE STRING "ASM compiler flags - debug")
+set(CMAKE_C_FLAGS_DEBUG          "-Og -g -gdwarf-4" CACHE STRING "C compiler flags - debug")
+set(CMAKE_CXX_FLAGS_DEBUG        "-Og -g -gdwarf-4" CACHE STRING "C++ compiler flags - debug")
+set(CMAKE_ASM_FLAGS_DEBUG        "-Og -g -gdwarf-4" CACHE STRING "ASM compiler flags - debug")
 set(CMAKE_EXE_LINKER_FLAGS_DEBUG ""       CACHE STRING "Linker flags - debug")
 
 set(CMAKE_C_FLAGS_RELEASE          "-Os -flto -fuse-linker-plugin" CACHE STRING "C compiler flags - release")
