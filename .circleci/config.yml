@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  one:
+    docker:
+      - image: archlinux/base:latest
+    steps:
+      - checkout
+      - run: pacman -Sy --noconfirm cmake git ninja
+      - run: mkdir release && cd release
+      - run:
+          name: cmake configure - release
+          command: cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/arm-gcc-toolchain.cmake \
+                    -G Ninja -DCMAKE_BUILD_TYPE=Release ..
+      - run:
+          name: build - release
+          command: ninja
+
+      - run: cd .. && mkdir debug && cd debug
+      - run:
+          name: cmake configure - debug
+          command: cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/arm-gcc-toolchain.cmake \
+                    -G Ninja -DCMAKE_BUILD_TYPE=Release ..
+      - run:
+          name: build - debug
+          command: ninja
