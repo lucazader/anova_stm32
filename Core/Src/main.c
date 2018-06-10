@@ -58,7 +58,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "application.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -117,7 +117,7 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+    app_main();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
