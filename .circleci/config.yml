@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  one:
+  build:
     docker:
       - image: archlinux/base:latest
     steps:
