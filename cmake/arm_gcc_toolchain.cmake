@@ -8,9 +8,9 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_VERSION 1)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-set(CMAKE_C_FLAGS_INIT   "${MCU} ${COMMON_FLAGS} -std=c11 ${C_DEFS}"
+set(CMAKE_C_FLAGS_INIT   "${MCU} ${COMMON_FLAGS} ${C_DEFS} -std=c11"
                     CACHE STRING "c compiler flags")
-set(CMAKE_CXX_FLAGS_INIT "${MCU} ${COMMON_FLAGS} -fno-rtti -fno-exceptions ${C_DEFS}"
+set(CMAKE_CXX_FLAGS_INIT "${MCU} ${COMMON_FLAGS} ${C_DEFS} -std=c++17 -fno-rtti -fno-exceptions"
                     CACHE STRING "cxx compiler flags")
 set(CMAKE_ASM_FLAGS_INIT "${MCU} ${COMMON_FLAGS} -x assembler-with-cpp"
                     CACHE STRING "asm compiler flags")
