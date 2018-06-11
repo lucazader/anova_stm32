@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
 
-set(C_DEFS "-DUSE_HAL_DRIVER -DSTM32F103xB")
-
 set(MCU "-mthumb -mcpu=cortex-m3 -mfloat-abi=soft")
 set(COMMON_FLAGS
 "-ffunction-sections -fdata-sections -Wall -Wdouble-promotion \
