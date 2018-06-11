@@ -16,5 +16,4 @@ set(LOCAL_INCLUDES
 
 embedded_executible(anova_stm32 ${LOCAL_SOURCES})
 target_include_directories(anova_stm32 PUBLIC inc)
-set_target_properties(anova_stm32 PROPERTIES LINK_FLAGS "-T ${PROJECT_LINKER_SCRIPT}")
 target_link_libraries(anova_stm32 core)

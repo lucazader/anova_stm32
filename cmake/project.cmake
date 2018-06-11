@@ -4,8 +4,6 @@ include(utils)
 include(freertos)
 include(stm32_usb_cdc)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 function(embedded_executible target)
     add_executable(${target} ${ARGN})
     set_target_properties(${target} PROPERTIES RUNTIME_OUTPUT_NAME ${target}.elf)
