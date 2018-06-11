@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.9)
 include(utils)
 include(freertos)
 include(stm32_usb_cdc)
-include(stm32f1xx_hal)
-include(stm32f1xx_flags)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 

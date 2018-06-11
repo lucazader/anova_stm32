@@ -1,12 +1,21 @@
 
 if(_TOOLCHAIN_LOADED)
-return()
+    return()
 endif()
 set(_TOOLCHAIN_LOADED TRUE)
 
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_VERSION 1)
 set(CMAKE_SYSTEM_PROCESSOR arm)
+
+set(CMAKE_C_FLAGS_INIT   "${MCU} ${COMMON_FLAGS} -std=c11 ${C_DEFS}"
+                    CACHE STRING "c compiler flags")
+set(CMAKE_CXX_FLAGS_INIT "${MCU} ${COMMON_FLAGS} -fno-rtti -fno-exceptions ${C_DEFS}"
+                    CACHE STRING "cxx compiler flags")
+set(CMAKE_ASM_FLAGS_INIT "${MCU} ${COMMON_FLAGS} -x assembler-with-cpp"
+                    CACHE STRING "asm compiler flags")
+set(CMAKE_EXE_LINKER_FLAGS_INIT "${MCU} ${MCU_LINKER_FLAGS}"
+                    CACHE STRING "executable linker flags")
 
 set(triplet arm-none-eabi)
 
@@ -53,23 +62,7 @@ find_program(CMAKE_SIZE         NAMES ${triplet}-size${exe_suffix}       HINTS "
 find_program(CMAKE_CPPFILT      NAMES ${triplet}-c++filt${exe_suffix}    HINTS "${hints}" DOC "Symbols demangler path")
 find_program(CMAKE_RANLIB       NAMES ${triplet}-gcc-ranlib${exe_suffix} HINTS "${hints}" DOC "Index generator path")
 
-if(${CMAKE_VERSION} VERSION_LESS 3.6.0)
-include(CMakeForceCompiler)
-cmake_force_c_compiler("${CMAKE_C_COMPILER}" GNU)
-cmake_force_cxx_compiler("${CMAKE_CXX_COMPILER}" GNU)
-else()
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
-endif()
-
-set(CMAKE_C_FLAGS_DEBUG          "-Og -g -gdwarf-4" CACHE STRING "C compiler flags - debug")
-set(CMAKE_CXX_FLAGS_DEBUG        "-Og -g -gdwarf-4" CACHE STRING "C++ compiler flags - debug")
-set(CMAKE_ASM_FLAGS_DEBUG        "-Og -g -gdwarf-4" CACHE STRING "ASM compiler flags - debug")
-set(CMAKE_EXE_LINKER_FLAGS_DEBUG ""       CACHE STRING "Linker flags - debug")
-
-set(CMAKE_C_FLAGS_RELEASE          "-Os -flto -fuse-linker-plugin" CACHE STRING "C compiler flags - release")
-set(CMAKE_CXX_FLAGS_RELEASE        "-Os -flto -fuse-linker-plugin" CACHE STRING "C++ compiler flags - release")
-set(CMAKE_ASM_FLAGS_RELEASE        ""                              CACHE STRING "ASM compiler flags - release")
-set(CMAKE_EXE_LINKER_FLAGS_RELEASE "-flto -fuse-linker-plugin"     CACHE STRING "Linker flags - release")
 
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY BOTH)
