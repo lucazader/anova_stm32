@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: lucazader/fedora_gcc_embedded
+      - image: lucazader/arch_gcc_embedded
     working_directory: ~/anova_stm32
     steps:
       - run: arm-none-eabi-gcc --version
