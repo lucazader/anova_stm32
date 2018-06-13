@@ -1,9 +1,4 @@
 
-if(_TOOLCHAIN_LOADED)
-    return()
-endif()
-set(_TOOLCHAIN_LOADED TRUE)
-
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_VERSION 1)
 set(CMAKE_SYSTEM_PROCESSOR arm)
