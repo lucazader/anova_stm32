@@ -11,10 +11,14 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_ROOT_DIR}/cmake)
 set(PROJECT_LINKER_SCRIPT ${PROJECT_SOURCE_ROOT_DIR}/STM32F103C8Tx_FLASH.ld CACHE STRING "Linker Script")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${PROJECT_LINKER_SCRIPT}")
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F103xB)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_definitions(-DLOGGING_LEVEL=4)
+endif()
 
 include(project)
 
 add_subdirectory(Core)
+add_subdirectory(modules)
 add_subdirectory(Drivers)
 add_subdirectory(application)
 
