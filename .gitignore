@@ -4,6 +4,7 @@ Debug/
 Release/
 
 \.vscode/
+\.settings/
 
 build/
 builds/
