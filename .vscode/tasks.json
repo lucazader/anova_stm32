@@ -1,0 +1,90 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build debug",
+            "dependsOn": [
+                "configure build"
+            ],
+            "type": "shell",
+            "problemMatcher": "$gcc",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug ../ && cmake --build .",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build release",
+            "type": "shell",
+            "dependsOn": [
+                "configure build"
+            ],
+            "problemMatcher": "$gcc",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake -DCMAKE_BUILD_TYPE=Release ../ && cmake --build .",
+            "group": "build"
+        },
+        {
+            "label": "flash - debug",
+            "dependsOn": [
+                "build debug"
+            ],
+            "type": "shell",
+            "problemMatcher": "$gcc",
+            "command": "st-flash",
+            "args": [
+                "write",
+                "${workspaceFolder}/build/application/anova_stm32.bin",
+                "0x08000000"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "configure build",
+            "type": "shell",
+            "dependsOn": [
+                "mkdir build"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_TOOLCHAIN_FILE=${workspaceFolder}/cmake/stm32f1xx_gcc_toolchain.cmake",
+                "-GNinja",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "${workspaceFolder}"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "mkdir build",
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "${workspaceFolder}/build"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "kill build",
+            "type": "shell",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/build"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
