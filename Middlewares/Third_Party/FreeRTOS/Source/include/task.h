@@ -2167,6 +2167,7 @@ BaseType_t xTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, cons
  * Sets the pointer to the current TCB to the TCB of the highest priority task
  * that is ready to run.
  */
+__attribute((used))
 void vTaskSwitchContext( void ) PRIVILEGED_FUNCTION;
 
 /*

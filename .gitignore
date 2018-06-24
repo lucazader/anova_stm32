@@ -3,7 +3,7 @@
 Debug/
 Release/
 
-\.vscode/
+\.settings/
 
 build/
 builds/
@@ -11,7 +11,8 @@ builds/
 \.cproject
 
 \.project
+\.vscode/\.cortex-debug\.peripherals\.state\.json
 
-\.settings/com\.atollic\.truestudio\.debug\.hardware_device\.prefs
+\.vscode/\.cortex-debug\.registers\.state\.json
 
-\.settings/language\.settings\.xml
+\.vscode/settings\.json

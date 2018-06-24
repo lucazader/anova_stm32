@@ -4,6 +4,12 @@ include(utils)
 include(freertos)
 include(stm32_usb_cdc)
 
+add_compile_options($<$<CONFIG:Debug>:-Og>)
+if(NOT CMAKE_BUILD_TYPE STREQUAL Debug)
+    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+endif()
+
+
 function(embedded_executible target)
     add_executable(${target} ${ARGN})
     set_target_properties(${target} PROPERTIES RUNTIME_OUTPUT_NAME ${target}.elf)
